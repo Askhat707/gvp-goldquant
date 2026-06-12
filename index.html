@@ -1424,17 +1424,17 @@
   <!-- ═══════════════════════════════════ TICKER ═══════════════════════════════════ -->
   <div class="ticker">
     <div class="ticker__inner">
-      <div class="ticker__item">XAUUSD: <span class="sp--green">2342.15</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">CME CALL MAX: <span class="sp--gold">2360.00</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">CME PUT MAX: <span class="sp--red">2310.00</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">ATM LEVEL: <span class="sp--blue">2335.50</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">VOLATILITY: <span class="sp--gold">LOW</span> <span class="ticker__sep">|</span></div>
-      <!-- Дублирование для бесконечного цикла анимации -->
-      <div class="ticker__item">XAUUSD: <span class="sp--green">2342.15</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">CME CALL MAX: <span class="sp--gold">2360.00</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">CME PUT MAX: <span class="sp--red">2310.00</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">ATM LEVEL: <span class="sp--blue">2335.50</span> <span class="ticker__sep">|</span></div>
-      <div class="ticker__item">VOLATILITY: <span class="sp--gold">LOW</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">XAUUSD SPOT: <span class="sp--green">4080.05</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">CME CALL MAX (+3.0σ): <span class="sp--gold">4238.14</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">CME PUT MAX (-3.0σ): <span class="sp--red">3990.74</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">ATM LEVEL: <span class="sp--blue">4114.44</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">VOLATILITY DTE: <span class="sp--gold">0.16 DAYS</span> <span class="ticker__sep">|</span></div>
+      <!-- Повтор для плавной прокрутки -->
+      <div class="ticker__item">XAUUSD SPOT: <span class="sp--green">4080.05</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">CME CALL MAX (+3.0σ): <span class="sp--gold">4238.14</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">CME PUT MAX (-3.0σ): <span class="sp--red">3990.74</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">ATM LEVEL: <span class="sp--blue">4114.44</span> <span class="ticker__sep">|</span></div>
+      <div class="ticker__item">VOLATILITY DTE: <span class="sp--gold">0.16 DAYS</span> <span class="ticker__sep">|</span></div>
     </div>
   </div>
 
@@ -1570,43 +1570,43 @@
         <div class="levels-chart">
           <!-- Call Levels (Вверху) -->
           <div class="levels-chart__row">
-            <span class="levels-chart__price">2360.00</span>
+            <span class="levels-chart__price">4238.14</span>
             <div class="levels-chart__line levels-chart__line--call3"></div>
-            <span class="levels-chart__label-text">Strong Call Wall</span>
+            <span class="levels-chart__label-text">Strong Call Wall (+3.0σ)</span>
           </div>
           <div class="levels-chart__row">
-            <span class="levels-chart__price">2350.00</span>
+            <span class="levels-chart__price">4196.91</span>
             <div class="levels-chart__line levels-chart__line--call2"></div>
-            <span class="levels-chart__label-text">Call Level 2</span>
+            <span class="levels-chart__label-text">Call Level 2 (+2.0σ)</span>
           </div>
           <div class="levels-chart__row">
-            <span class="levels-chart__price">2345.00</span>
+            <span class="levels-chart__price">4155.67</span>
             <div class="levels-chart__line levels-chart__line--call1"></div>
-            <span class="levels-chart__label-text">Call Level 1</span>
+            <span class="levels-chart__label-text">Call Level 1 (+1.0σ)</span>
           </div>
 
           <!-- ATM (По центру) -->
           <div class="levels-chart__row levels-chart__row--atm">
-            <span class="levels-chart__price">2335.50</span>
+            <span class="levels-chart__price">4114.44</span>
             <div class="levels-chart__line levels-chart__line--atm"></div>
-            <span class="levels-chart__label-text">ATM (At-The-Money)</span>
+            <span class="levels-chart__label-text">ATM Strike (Баланс)</span>
           </div>
 
           <!-- Put Levels (Внизу) -->
           <div class="levels-chart__row">
-            <span class="levels-chart__price">2325.00</span>
+            <span class="levels-chart__price">4073.21</span>
             <div class="levels-chart__line levels-chart__line--put1"></div>
-            <span class="levels-chart__label-text">Put Level 1</span>
+            <span class="levels-chart__label-text">Put Level 1 (-1.0σ)</span>
           </div>
           <div class="levels-chart__row">
-            <span class="levels-chart__price">2320.00</span>
+            <span class="levels-chart__price">4031.97</span>
             <div class="levels-chart__line levels-chart__line--put2"></div>
-            <span class="levels-chart__label-text">Put Level 2</span>
+            <span class="levels-chart__label-text">Put Level 2 (-2.0σ)</span>
           </div>
           <div class="levels-chart__row">
-            <span class="levels-chart__price">2310.00</span>
+            <span class="levels-chart__price">3990.74</span>
             <div class="levels-chart__line levels-chart__line--put3"></div>
-            <span class="levels-chart__label-text">Strong Put Wall</span>
+            <span class="levels-chart__label-text">Strong Put Wall (-3.0σ)</span>
           </div>
         </div>
 
@@ -1651,34 +1651,11 @@
       <div class="screenshots-grid">
         <!-- Card 1: Map of levels -->
         <div class="screenshot-card">
-          <div class="screenshot-card__img-wrap">
-            <img src="screenshot1.png" alt="Панель индикаторов GVP Gold Quant v3.1" class="screenshot-img" />
+          <div class="screenshot-card__img-wrap" style="padding: 0;">
+            <a href="screenshot1.png" target="_blank" title="Кликните, чтобы открыть в оригинальном размере" style="width: 100%; display: block;">
+              <img src="screenshot1.png" alt="Панель индикаторов GVP Gold Quant v3.1" class="screenshot-img" style="cursor: zoom-in; width: 100%; display: block;" />
+            </a>
           </div>
-            
-            <!-- Интерактивный терминал (скроется, если будет активно изображение выше) -->
-            <div class="sp__terminal">
-              <div class="sp__line"><span>STATUS:</span> <span class="sp--green">CONNECTED</span></div>
-              <div class="sp__line"><span>FEED:</span> <span class="sp--blue">CME_GOLD_LIVE</span></div>
-              <div class="sp__line--sep"></div>
-              <div class="sp__line"><span>TICKER:</span> <span class="sp--gold">XAUUSD 2341.50</span></div>
-              <div class="sp__line"><span>SKEW:</span> <span class="sp--red">-0.12 (Bearish)</span></div>
-              <div class="sp__line--sep"></div>
-              <div class="sp__levels">
-                <div class="sp__level sp__level--3">2360.00 (STRONG CALL)</div>
-                <div class="sp__level sp__level--2">2350.00 (CALL 2)</div>
-                <div class="sp__level sp__level--atm">2340.00 (ATM)</div>
-                <div class="sp__level sp__level--1">2330.00 (PUT 1)</div>
-                <div class="sp__level sp__level--3">2310.00 (STRONG PUT)</div>
-              </div>
-              <div class="sp__caption">Institutional Level Map v3.1</div>
-            </div>
-          </div>
-          <div class="screenshot-card__info">
-            <span class="screenshot-card__tag">Dashboard</span>
-            <h3 class="screenshot-card__title">Карта уровней</h3>
-            <p class="screenshot-card__desc">Полный список активных опционных зон с их приоритетом и типом распределения ликвидности.</p>
-          </div>
-        </div>
 
         <!-- Card 2: History Log -->
         <div class="screenshot-card">
