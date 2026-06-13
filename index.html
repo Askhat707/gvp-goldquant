@@ -1414,6 +1414,11 @@
           <span class="stat__num">XAUUSD</span>
           <span class="stat__label">Инструмент</span>
         </div>
+        <div class="stat__div"></div>
+        <div class="stat">
+          <span class="stat__num">Python</span>
+          <span class="stat__label">Engine Active</span>
+        </div>
       </div>
       <div class="hero__scroll-hint">
         <i class="fa-solid fa-chevron-down"></i>
@@ -1639,16 +1644,18 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ SCREENSHOTS ═══════════════════════════════════ -->
+  <!-- ═══════════════════════════════════ SCREENSHOTS & ANNOTATION ═══════════════════════════════════ -->
   <section class="section section--dark" id="screenshots">
     <div class="container">
       <div class="section__header">
         <span class="eyebrow">Интерфейс</span>
         <h2 class="section__title">Внутри терминала</h2>
-        <p class="section__desc">Минималистичный дизайн, максимум полезной информации.</p>
+        <p class="section__desc">Минималистичный дизайн, максимум полезной количественной информации.</p>
       </div>
 
-      <div class="screenshots-grid">
+      <!-- Адаптивная авто-сетка (поддерживает бесконечное добавление новых карточек) -->
+      <div class="screenshots-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        
         <!-- Карточка 1: Карта уровней (Ваш Скриншот) -->
         <div class="screenshot-card">
           <div class="screenshot-card__img-wrap" style="padding: 0;">
@@ -1659,65 +1666,119 @@
           <div class="screenshot-card__info">
             <span class="screenshot-card__tag">Dashboard</span>
             <h3 class="screenshot-card__title">Карта уровней</h3>
-            <p class="screenshot-card__desc">Полный список активных опционных зон с их приоритетом и типом распределения ликвидности.</p>
+            <p class="screenshot-card__desc">Ключевые ценовые пороги, сигма-каналы и расчет движения цены к опционному балансу на М1.</p>
           </div>
         </div>
 
-        <!-- Карточка 2: Журнал сделок -->
+        <!-- Карточка 2: Анализ давления & Delta Pressure (Реальные данные со скрина!) -->
         <div class="screenshot-card">
           <div class="screenshot-card__img-wrap">
             <div class="sp__terminal">
-              <div class="sp__line"><span>HISTORY LOG (XAUUSD)</span></div>
+              <div class="sp__line"><span>DELTA PRESSURE & GEX</span></div>
               <div class="sp__line--sep"></div>
-              <div class="sp__hrow">
-                <span class="sp__hlabel">13:20</span>
-                <span class="sp__hprice">Price hit Put Level 1 4073.21</span>
-                <div class="sp__hbar sp__hbar--c sp__hbar--glow" style="width: 40px;"></div>
-              </div>
-              <div class="sp__hrow">
-                <span class="sp__hlabel">13:35</span>
-                <span class="sp__hprice">Buy Order Executed at 4075.50</span>
-                <div class="sp__hbar sp__hbar--c" style="width: 60px;"></div>
-              </div>
-              <div class="sp__hrow">
-                <span class="sp__hlabel">14:08</span>
-                <span class="sp__hprice">TP hit at ATM Strike 4114.44</span>
-                <div class="sp__hbar sp__hbar--p sp__hbar--glow-r" style="width: 80px;"></div>
-              </div>
+              <div class="sp__line"><span>Position vs ATM:</span> <span class="sp--red">▲ ABOVE ATM</span></div>
+              <div class="sp__line"><span>Hedge Force (OI):</span> <span class="sp--red">SELL ↓ ATM (mag: 957)</span></div>
+              <div class="sp__line"><span>VOL Force (LIVE):</span> <span class="sp--red">VOL SELL ↓ δ=91.0</span></div>
+              <div class="sp__line"><span>Net δ OI:</span> <span class="sp--red">-740.4 контр-делт (OI)</span></div>
+              <div class="sp__line"><span>OI Call/Put:</span> <span class="sp--blue">846 C / 1580 P [imb: -734]</span></div>
+              <div class="sp__line"><span>P/C OI Ratio:</span> <span class="sp--gold">1.868 ↔ NEUTRAL</span></div>
+              <div class="sp__line"><span>Vol Call/Put:</span> <span class="sp--green">1594 C / 1092 P</span></div>
               <div class="sp__line--sep"></div>
-              <div class="sp__line"><span>PROFIT (M1 SWING):</span> <span class="sp--green">+$3,894.00</span></div>
+              <div class="sp__line"><span>Total OI / Vol:</span> <span class="sp--green">2426 OI / 2686 Vol</span></div>
             </div>
           </div>
           <div class="screenshot-card__info">
-            <span class="screenshot-card__tag">Analytics</span>
-            <h3 class="screenshot-card__title">Журнал сделок</h3>
-            <p class="screenshot-card__desc">Автоматическое ведение журнала и анализ каждой совершенной сделки на графике.</p>
+            <span class="screenshot-card__tag">Delta & Volume</span>
+            <h3 class="screenshot-card__title">Опционное давление</h3>
+            <p class="screenshot-card__desc">Расчет сил хеджирования дилеров. Сильный перекос в сторону продаж указывает на барьеры сверху.</p>
           </div>
         </div>
 
-        <!-- Карточка 3: Настройки риск-менеджмента -->
+        <!-- Карточка 3: Интрадей Аналитика (Реальные данные со скрина!) -->
         <div class="screenshot-card">
           <div class="screenshot-card__img-wrap">
             <div class="sp__terminal">
-              <div class="sp__line"><span>QUANT CONFIG v3.1</span></div>
+              <div class="sp__line"><span>INTRADAY ANALYTICS</span></div>
               <div class="sp__line--sep"></div>
-              <div class="sp__line"><span>DTE Filter (Max):</span> <span class="sp--gold">0.50 days</span></div>
-              <div class="sp__line"><span>Min P[y-Pinning]:</span> <span class="sp--gold">90.0%</span></div>
-              <div class="sp__line"><span>Sigma Step (1σ):</span> <span class="sp--gold">41.23 pts</span></div>
-              <div class="sp__line"><span>License Key:</span> <span class="sp--blue">MASTER_ORIGINAL</span></div>
+              <div class="sp__line"><span>GEX Total:</span> <span class="sp--red">-447041 [EXPANSION]</span></div>
+              <div class="sp__line"><span>Max Pain (Mag):</span> <span class="sp--gold">4200.00</span></div>
+              <div class="sp__line"><span>Straddle Theory:</span> <span class="sp--blue">33.63$ [x0.98 FAIR]</span></div>
+              <div class="sp__line"><span>Risk Reversal 25Δ:</span> <span class="sp--red">RR=9.25 (ATM IV=48.73%)</span></div>
+              <div class="sp__line"><span>Flow Signal:</span> <span class="sp--red">PUT_SKEW [BEARISH]</span></div>
+              <div class="sp__line"><span>DTE Expiration:</span> <span class="sp--gold">0.162 DAYS</span></div>
               <div class="sp__line--sep"></div>
-              <div class="sp__line" style="text-align: center;">
-                <span class="sp--green" style="cursor: pointer; font-weight: bold;">[ APPLY CONFIG ]</span>
-              </div>
+              <div class="sp__line"><span>[Python ENGINE]:</span> <span class="sp--green">Active & Synced</span></div>
             </div>
           </div>
           <div class="screenshot-card__info">
-            <span class="screenshot-card__tag">Config</span>
-            <h3 class="screenshot-card__title">Риск-менеджмент</h3>
-            <p class="screenshot-card__desc">Гибкие параметры настроек защитных ордеров под ваш личный стиль торговли и депозит.</p>
+            <span class="screenshot-card__tag">Quant Analytics</span>
+            <h3 class="screenshot-card__title">Динамика волатильности</h3>
+            <p class="screenshot-card__desc">Интрадей-анализ перекоса рисков. Отрицательный GEX в фазе EXPANSION указывает на всплеск волатильности.</p>
+          </div>
+        </div>
+
+        <!-- 💡 ИНСТРУКЦИЯ ПО ДОБАВЛЕНИЮ НОВЫХ СКРИНШОТОВ:
+             Чтобы добавить 4-й, 5-й и последующие скриншоты, просто скопируйте блок ниже, 
+             вставьте его прямо перед закрывающим тегом </div> (строка 526) и укажите путь к файлу. -->
+        <!--
+        <div class="screenshot-card">
+          <div class="screenshot-card__img-wrap" style="padding: 0;">
+            <a href="screenshot2.png" target="_blank" title="Кликните, чтобы открыть" style="width: 100%; display: block;">
+              <img src="screenshot2.png" alt="Дополнительный скриншот" class="screenshot-img" style="cursor: zoom-in; width: 100%; display: block;" />
+            </a>
+          </div>
+          <div class="screenshot-card__info">
+            <span class="screenshot-card__tag">Доп. Аналитика</span>
+            <h3 class="screenshot-card__title">Название нового скриншота</h3>
+            <p class="screenshot-card__desc">Описание того, что изображено на вашем новом скриншоте.</p>
+          </div>
+        </div>
+        -->
+
+      </div>
+
+      <!-- ════════════════════ ПОДРОБНАЯ АННОТАЦИЯ ДАШБОРДА ДЛЯ ПОЛЬЗОВАТЕЛЕЙ ════════════════════ -->
+      <div class="dashboard-annotation" style="margin-top: 60px; padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 16px;">
+        <h3 style="color: var(--accent-gold); font-size: 1.8rem; margin-bottom: 20px; font-family: var(--font-main);">
+          <i class="fa-solid fa-circle-info"></i> Что означают метрики дашборда GVP Quant?
+        </h3>
+        <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1rem; line-height: 1.7;">
+          Дашборд агрегирует и обрабатывает институциональные опционные данные в режиме реального времени через Python-модуль. Ниже приведена подробная аннотация ключевых блоков, отображаемых на панели:
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+          <!-- Объяснение 1 -->
+          <div>
+            <h4 style="color: var(--accent-blue); font-family: var(--font-mono); margin-bottom: 10px; font-size: 1.1rem;">
+              1. GEX Total & [EXPANSION]
+            </h4>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              <strong>Gamma Exposure (GEX)</strong> отражает экспозицию маркет-мейкеров. Отрицательный показатель (<span class="sp--red">-447,041</span>) в фазе <strong>EXPANSION</strong> означает, что дилеры будут вынуждены продавать при падении и покупать при росте цены, лавинообразно ускоряя текущее движение и расширяя дневной диапазон колебаний.
+            </p>
+          </div>
+
+          <!-- Объяснение 2 -->
+          <div>
+            <h4 style="color: var(--accent-blue); font-family: var(--font-mono); margin-bottom: 10px; font-size: 1.1rem;">
+              2. Net δ OI (Контр-дельта)
+            </h4>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              Показывает чистый перекос дельты по открытому интересу. Значение <span class="sp--red">-740.4</span> указывает на сильное давление продавцов на фьючерсном рынке. Это вынуждает алгоритмы маркет-мейкеров выставлять защитные ордера на покупку ниже текущей цены, формируя прочные разворотные зоны.
+            </p>
+          </div>
+
+          <!-- Объяснение 3 -->
+          <div>
+            <h4 style="color: var(--accent-blue); font-family: var(--font-mono); margin-bottom: 10px; font-size: 1.1rem;">
+              3. P[γ-Pinning OU] & Expiration
+            </h4>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+              При приближении времени к экспирации (<span class="sp--gold">DTE: 0.162 дня</span>) в силу вступает <strong>эффект пиннинга</strong> (вероятность удержания <span class="sp--green">98.23%</span> по модели Орнштейна-Уленбека). Цена золота с высокой долей вероятности будет притягиваться к точке максимальной боли опционных контрактов — уровню <strong>Max Pain (4200)</strong>.
+            </p>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1751,7 +1812,7 @@
         </a>
         
         <div class="cta-block__note">
-          * Trial-версия предоставляется на 14 дней. <a href="https://teletype.in/@as0729" target="_blank">Узнать больше на Teletype</a>
+          * Trial-версия предоставляется на 5 дней. <a href="https://teletype.in/@as0729" target="_blank">Узнать больше на Teletype</a>
         </div>
       </div>
     </div>
