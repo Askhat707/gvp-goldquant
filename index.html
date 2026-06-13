@@ -1338,15 +1338,30 @@
       }
 
       .hero__title {
-        font-size: 2.5rem;
-      }
+            font-size: 2.5rem;
+          }
 
-      .cta-block__title {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
+          .cta-block__title {
+            font-size: 2rem;
+          }
+        } /* Конец медиа-запроса (max-width: 900px) */
+
+        /* Адаптивное поведение шапки сайта для десктопов */
+        @media (min-width: 900px) {
+          .hero__inner {
+            flex-direction: row !important;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+          }
+        }
+        .hero-img:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 0 60px rgba(212, 175, 55, 0.25) !important;
+          border-color: var(--accent-gold) !important;
+        }
+      </style> <!-- Строка 1081 (бывшая) -->
+    </head>
 
 <body>
 
@@ -1372,29 +1387,43 @@
 
   <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
   <header class="hero" id="top">
-    <div class="container hero__content">
-      <div class="hero__badge">
-        <span class="badge-dot"></span>
-        LIVE · CME Gold Options · QuikStrike Engine
+    <div class="container">
+      
+      <!-- Двухколоночный флекс-контейнер для текста и картинки -->
+      <div class="hero__inner" style="display: flex; flex-direction: column; gap: 40px; margin-bottom: 50px;">
+        
+        <!-- Левая колонка: Текст и кнопки -->
+        <div class="hero__left" style="flex: 1.2;">
+          <div class="hero__badge">
+            <span class="badge-dot"></span>
+            LIVE · CME Gold Options · QuikStrike Engine
+          </div>
+          <h1 class="hero__title" style="margin-bottom: 24px;">
+            Институциональные<br />
+            <span class="hero__title-accent">Опционные Уровни</span><br />
+            для XAUUSD
+          </h1>
+          <p class="hero__sub" style="margin-bottom: 40px;">
+            Профессиональный торговый терминал на базе MT5, использующий данные CME Group для определения зон максимальной ликвидности и разворотов золота в реальном времени.
+          </p>
+          <div class="hero__actions">
+            <a href="https://drive.google.com/file/d/1PRganRC7dK-dbgpwhDvULL5NK1QsdB2w/view?usp=drive_link" target="_blank" class="btn btn--primary btn--large">
+              <i class="fa-solid fa-download"></i> Скачать Trial-версию
+            </a>
+            <a href="https://teletype.in/@as0729" target="_blank" class="btn btn--ghost btn--large">
+              Как это работает <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Правая колонка: Ваша дорогая сгенерированная картинка (занимает обведенный квадрат) -->
+        <div class="hero__right" style="flex: 0.8; display: flex; justify-content: center; align-items: center;">
+          <img src="hero-gold.png" alt="Институциональный анализ GVP Gold Quant" class="hero-img" style="width: 100%; max-width: 500px; height: auto; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 0 40px rgba(212, 175, 55, 0.15); transition: var(--transition);" />
+        </div>
+
       </div>
-      <h1 class="hero__title">
-        Институциональные<br />
-        <span class="hero__title-accent">Опционные Уровни</span><br />
-        для XAUUSD
-      </h1>
-      <p class="hero__sub">
-        Профессиональный торговый терминал на базе MT5, использующий данные CME Group для определения зон максимальной ликвидности и разворотов золота в реальном времени.
-      </p>
-      <div class="hero__actions">
-        <!-- Клик ведет на скачивание файла из Google Drive -->
-        <a href="https://drive.google.com/file/d/1PRganRC7dK-dbgpwhDvULL5NK1QsdB2w/view?usp=drive_link" target="_blank" class="btn btn--primary btn--large">
-          <i class="fa-solid fa-download"></i> Скачать Trial-версию
-        </a>
-        <!-- Клик ведет на подробную документацию в Teletype -->
-        <a href="https://teletype.in/@as0729" target="_blank" class="btn btn--ghost btn--large">
-          Как это работает <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
+
+      <!-- Блок статистики (расположен ровно под колонками) -->
       <div class="hero__stats">
         <div class="stat">
           <span class="stat__num">v3.1</span>
@@ -1421,6 +1450,7 @@
           <span class="stat__label">Engine Active</span>
         </div>
       </div>
+
       <div class="hero__scroll-hint">
         <i class="fa-solid fa-chevron-down"></i>
       </div>
