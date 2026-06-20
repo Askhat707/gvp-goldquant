@@ -1683,7 +1683,169 @@
       </div>
     </div>
   </section>
+<!-- ═══════════════════════════════════ SECTION: ADVISOR SETUP GUIDE (НОВАЯ) ═══════════════════════════════════ -->
+  <section class="section section--dark" id="setup-guide" style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">Пошаговое руководство</span>
+        <h2 class="section__title">Установка и настройка советника v3.2</h2>
+        <p class="section__desc">Инструкция по быстрому запуску серверного модуля GVP Levels Viewer в терминале MetaTrader 5.</p>
+      </div>
 
+      <div style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 50px;">
+        <!-- Системные требования и критические настройки -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px;">
+          <h3 style="color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 20px; font-family: var(--font-main);">
+            <i class="fa-solid fa-triangle-exclamation"></i> Важное требование перед запуском: Разрешение DLL
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+            Советник v3.2 использует защищенный шлюз Windows API через библиотеку <code style="font-family: var(--font-mono); color: var(--accent-blue);">wininet.dll</code> для мгновенного обмена данными с прокси-сервером CME без задержек. Чтобы советник мог получать уровни, обязательно включите импорт DLL:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+            <div style="flex: 1; min-width: 250px; background: #050507; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 8px; font-size: 0.95rem;">Способ А (Рекомендуемый, через настройки терминала):</strong>
+              <span style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; display: block;">
+                В меню МТ5 перейдите в <strong>Сервис → Настройки → Советники</strong>. Поставьте галочку напротив пункта <strong>«Разрешить импорт DLL»</strong> и нажмите ОК.
+              </span>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: #050507; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 8px; font-size: 0.95rem;">Способ Б (Если DLL запрещены вашим брокером):</strong>
+              <span style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; display: block;">
+                Если импорт DLL отключен, советник автоматически перейдет в режим WebRequest. В этом случае добавьте URL сервера <code style="font-family: var(--font-mono); color: var(--accent-gold);">https://askhat777-public-proxy-server.hf.space</code> в список разрешенных URL в настройках советников MT5.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Пошаговые карточки установки -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+          
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; transition: var(--transition);">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 15px;">01</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 10px; font-size: 1.1rem;">Размещение файла EX5</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+              В терминале MT5 откройте <strong>Файл → Открыть каталог данных</strong>. Перейдите в папку <code style="font-family: var(--font-mono);">MQL5/Experts</code> и скопируйте туда скачанный файл советника.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; transition: var(--transition);">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 15px;">02</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 10px; font-size: 1.1rem;">Обновление и запуск</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+              В окне "Навигатор" MT5 нажмите правой кнопкой на раздел "Советники" и выберите <strong>"Обновить"</strong>. Перетащите советник на минутный график золота <strong>(XAUUSD, M1)</strong>.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; transition: var(--transition);">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 15px;">03</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 10px; font-size: 1.1rem;">Активация Trial-режима</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+              Во входных параметрах оставьте поле <code style="font-family: var(--font-mono); color: var(--accent-gold);">InpLicenseKey</code> пустым. Советник автоматически распознает ваше устройство и активирует бесплатный 5-дневный триал-доступ.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; transition: var(--transition);">
+            <div style="font-family: var(--font-mono); font-size: 1.8rem; color: var(--accent-blue); font-weight: bold; margin-bottom: 15px;">04</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 10px; font-size: 1.1rem;">Горячие клавиши DTE</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+              Управляйте экспирациями прямо с клавиатуры: нажмите <strong>NUMPAD 1</strong>, чтобы переключить уровни на будущую контрактную вкладку, или <strong>NUMPAD 0</strong> для возврата к авто-выбору.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ SECTION: QUANT ACADEMY (НОВАЯ) ═══════════════════════════════════ -->
+  <section class="section" id="quant-academy">
+    <div class="container">
+      <div class="section__header">
+        <span class="eyebrow">Теория квантового анализа</span>
+        <h2 class="section__title">Физика рынка: ОИ, Объём и Механика отскока</h2>
+        <p class="section__desc">Почему цена разворачивается на опционных уровнях и как крупные игроки защищают свои деньги.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 50px;">
+        
+        <!-- Верхний блок: ОИ vs Объемы -->
+        <div style="display: flex; flex-direction: column; gap: 30px; align-items: stretch;">
+          <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+            <!-- Открытый интерес (OI) -->
+            <div style="flex: 1; min-width: 300px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: 16px;">
+              <div style="font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 15px;"><i class="fa-solid fa-layer-group"></i></div>
+              <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 15px; font-family: var(--font-main);">Открытый Интерес (OI — Open Interest)</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                <strong>Открытый интерес</strong> — это общее количество действующих, незакрытых контрактов на бирже CME. Он показывает <em>стратегические деньги</em> институциональных инвесторов, которые были влиты в рынок заранее.
+              </p>
+              <ul style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; display: flex; flex-direction: column; gap: 10px;">
+                <li style="display: flex; gap: 10px;"><span style="color: var(--accent-gold);">✔</span> Это жесткие границы ("плиты"), которые крупные фонды удерживают неделями.</li>
+                <li style="display: flex; gap: 10px;"><span style="color: var(--accent-gold);">✔</span> Пик открытого интереса на Путах (Put Wall) формирует фундаментальное дно цены.</li>
+              </ul>
+            </div>
+
+            <!-- Объемы (Volume) -->
+            <div style="flex: 1; min-width: 300px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: 16px;">
+              <div style="font-size: 2.2rem; color: var(--accent-blue); margin-bottom: 15px;"><i class="fa-solid fa-chart-simple"></i></div>
+              <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 15px; font-family: var(--font-main);">Торговые Объемы (Volume)</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 15px;">
+                <strong>Объем</strong> — это количество контрактов, проторгованных <em>именно сегодня (интрадей)</em>. Он отражает тактические маневры маркет-мейкеров в режиме реального времени и текущий импульс рынка.
+              </p>
+              <ul style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; display: flex; flex-direction: column; gap: 10px;">
+                <li style="display: flex; gap: 10px;"><span style="color: var(--accent-blue);">✔</span> Показывает, куда прямо сейчас вливается ликвидность для краткосрочных движений.</li>
+                <li style="display: flex; gap: 10px;"><span style="color: var(--accent-blue);">✔</span> Прирост объема без касания уровня (Untouched Volume) указывает на скрытый набор позиций.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Нижний блок: Механика отскока и хедджирования -->
+        <div style="background: linear-gradient(135deg, rgba(212,175,55,0.02) 0%, rgba(5,5,7,1) 100%); border: 1px solid var(--accent-gold-dim); border-radius: 20px; padding: 40px;">
+          <h3 style="color: var(--accent-gold); font-size: 1.6rem; margin-bottom: 20px; font-family: var(--font-main); text-align: center;">
+            <i class="fa-solid fa-wave-square"></i> Физика отскока: Почему уровни разворачивают цену?
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; max-width: 900px; margin: 0 auto 30px; text-align: center;">
+            Опционные уровни работают не потому, что трейдеры видят их на графиках. Причина разворота — это <strong>автоматическое дельта-хеджирование (Delta Hedging) дилеров</strong> на фьючерсном рынке золота биржи CME.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 20px;">
+            <!-- Шаг механики 1 -->
+            <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+              <h4 style="color: var(--accent-blue); font-family: var(--font-mono); margin-bottom: 12px; font-size: 1rem;">1. Продажа обязательств</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                Крупные маркет-мейкеры (дилеры) продают розничным игрокам и фондам огромное количество опционов Put (страховка от падения золота) и Call (ставка на рост) на CME.
+              </p>
+            </div>
+
+            <!-- Шаг механики 2 -->
+            <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+              <h4 style="color: var(--accent-blue); font-family: var(--font-mono); margin-bottom: 12px; font-size: 1rem;">2. Нарастание риска (Дельта)</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                Когда спот-цена золота падает и приближается к уровню скопления проданных Путов (Put Wall), риск дилера (коэффициент Дельта) начинает стремительно расти в отрицательную сторону.
+              </p>
+            </div>
+
+            <!-- Шаг механики 3 -->
+            <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+              <h4 style="color: var(--accent-gold); font-family: var(--font-mono); margin-bottom: 12px; font-size: 1rem;">3. Вынужденный выкуп фьючерсов</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                Чтобы не понести миллиардные убытки и оставаться дельта-нейтральными, маркет-мейкеры обязаны начать <strong>массированно скупать фьючерсы на золото</strong> на базовом рынке CME.
+              </p>
+            </div>
+
+            <!-- Шаг механики 4 -->
+            <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color);">
+              <h4 style="color: var(--accent-green); font-family: var(--font-mono); margin-bottom: 12px; font-size: 1rem;">4. Разворот цены (Отскок)</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                Этот лавинообразный автоматический выкуп фьючерсов крупными дилерами создаёт мощный барьер для цены. Падение останавливается, и золото совершает резкий **отскок** вверх.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
   <!-- ═══════════════════════════════════ SCREENSHOTS & ANNOTATION ═══════════════════════════════════ -->
   <section class="section section--dark" id="screenshots">
     <div class="container">
